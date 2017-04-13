@@ -21,6 +21,18 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('client have disconnect.');
     });
+    
+    socket.emit('newMessage', {
+        from: 'danely',
+        text: 'Bong ha',
+        createdAt: 3423424
+    });
+
+    socket.on('createNewMessage', (data) => {
+        console.log('recevie new email: ', data);
+    });
+
+
 });
 
 
